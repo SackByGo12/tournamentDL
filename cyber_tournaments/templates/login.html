@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Вход
+{% endblock %}
+
+{% block content %}
+<h1>Вход</h1>
+
+<form method="POST" action="">
+    {{ form.hidden_tag() }}
+    <div>
+        {{ form.username.label }}<br>
+        {{ form.username(size=32) }}<br>
+        {% for error in form.username.errors %}
+            <span class="error">{{ error }}</span><br>
+        {% endfor %}
+    </div>
+    <div>
+        {{ form.password.label }}<br>
+        {{ form.password(size=32) }}<br>
+        {% for error in form.password.errors %}
+            <span class="error">{{ error }}</span><br>
+        {% endfor %}
+    </div>
+    <div>
+        <button type="submit">{{ form.submit() }}</button>
+    </div>
+</form>
+{% endblock %}

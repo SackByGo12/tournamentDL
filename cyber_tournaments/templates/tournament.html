@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Создать турнир
+{% endblock %}
+
+{% block content %}
+<h1>Создать новый турнир</h1>
+
+<form method="POST" action="">
+    {{ form.hidden_tag() }}
+    
+    <div>
+        {{ form.name.label }}<br>
+        {{ form.name(size=32) }}<br>
+        {% for error in form.name.errors %}
+            <span class="error">{{ error }}</span><br>
+        {% endfor %}
+    </div>
+    
+    <div>
+        {{ form.description.label }}<br>
+        {{ form.description(rows=5, cols=40) }}<br>
+        {% for error in form.description.errors %}
+            <span class="error">{{ error }}</span><br>
+        {% endfor %}
+    </div>
+    
+    <div>
+        <button type="submit">{{ form.submit() }}</button>
+    </div>
+</form>
+{% endblock %}
