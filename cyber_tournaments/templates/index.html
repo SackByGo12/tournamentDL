@@ -11,10 +11,10 @@
     <h2>Доступные турниры:</h2>
     <ul>
         {% for tournament in tournaments %}
-            <li>
-                <h3>{{ tournament.name }}</h3>
-                <p>{{ tournament.description }}</p>
-                <p>Создатель: {{ tournament.creator.username }}</p>
+            <li class="tournament">
+                <h5>Название: {{ tournament.name }}</h5>
+                <p>Описание: <br>{{ tournament.description }}</p>
+                <p>Создатель: {{ tournament.username }}</p>
                 {% if current_user.is_authenticated %}
                     <form action="{{ url_for('join_tournament', tournament_id=tournament.id) }}" method="post">
                         <button type="submit">Присоединиться</button>

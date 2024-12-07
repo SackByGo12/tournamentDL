@@ -74,6 +74,21 @@ nav ul li a:hover {
     background-color: #ffc107;
 }
 
+.tournament {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    border: white 1px solid;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.tournament h5 {
+    font-size: larger;
+    margin: 5px 0;
+}
+
 /* Форма */
 form {
     margin-top: 20px;
@@ -88,6 +103,7 @@ form input[type="password"],
 form textarea {
     width: 100%;
     padding: 10px;
+    margin: 10px 0;
     border: 1px solid #444;
     border-radius: 5px;
     background-color: #2c2c2c;

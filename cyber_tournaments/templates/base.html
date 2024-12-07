@@ -9,20 +9,7 @@
 </head>
 
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="{{ url_for('index') }}">Главная</a></li>
-                {% if current_user.is_authenticated %}
-                <li><a href="{{ url_for('dashboard') }}">Личный кабинет</a></li>
-                <li><a href="{{ url_for('logout') }}">Выйти</a></li>
-                {% else %}
-                <li><a href="{{ url_for('login') }}">Вход</a></li>
-                <li><a href="{{ url_for('register') }}">Регистрация</a></li>
-                {% endif %}
-            </ul>
-        </nav>
-    </header>
+    {% include 'ui/header.html' %}
     <div class="container">
         {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}

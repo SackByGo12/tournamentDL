@@ -13,10 +13,10 @@
 
 <h2>Ваши турниры:</h2>
 <ul>
-    {% for tournament in current_user.tournaments %}
-        <li>
-            <strong>{{ tournament.name }}</strong><br>
-            {{ tournament.description }}<br>
+    {% for tournament in tournaments %}
+        <li class="tournament">
+            <h5>Название: {{ tournament.name }}</h5><br>
+            Описание:<br>{{ tournament.description }}<br>
             <form action="{{ url_for('delete_tournament', tournament_id=tournament.id) }}" method="post">
                 <button type="submit">Удалить</button>
             </form>
