@@ -3,13 +3,13 @@
 <header>
     <nav>
         <ul>
-            <li><a href="{{ url_for('index') }}">Главная</a></li>
+            <li><a href="{{ url_for('mainRouter.index') }}">Главная</a></li>
             {% if current_user.is_authenticated %}
-            <li><a href="{{ url_for('dashboard') }}">Личный кабинет</a></li>
-            <li><a href="{{ url_for('logout') }}">Выйти</a></li>
+            <li><a href="{{ url_for('mainRouter.dashboard') }}">Личный кабинет</a></li>
+            <li><a href="{{ url_for('authRouter.logout') }}">Выйти</a></li>
             {% else %}
-            <li><a href="{{ url_for('login') }}">Вход</a></li>
-            <li><a href="{{ url_for('register') }}">Регистрация</a></li>
+            <li><a href="{{ url_for('authRouter.login') }}">Вход</a></li>
+            <li><a href="{{ url_for('authRouter.register') }}">Регистрация</a></li>
             {% endif %}
         </ul>
     </nav>

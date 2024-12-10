@@ -7,7 +7,9 @@ body {
     padding: 0;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     color: #ff4747;
 }
 
@@ -89,6 +91,51 @@ nav ul li a:hover {
     margin: 5px 0;
 }
 
+/* Карточка турнира */
+.tour-card {
+    margin-top: 20px;
+}
+
+.tour-card div {
+    margin-bottom: 10px;
+}
+
+.tour-card textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #2c2c2c;
+    color: #fff;
+}
+
+.tour-card__participants {
+    display: flex;
+    flex-direction: wrap;
+}
+
+.tour-card__participants p {
+    margin: 10px 0;
+    padding: 5px 10px;
+    border-radius: 100px;
+    border: #ff4747 1px solid
+}
+
+form button[type="submit"] {
+    padding: 10px 15px;
+    background-color: #ff4747;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+form button[type="submit"]:hover {
+    background-color: #e63f3f;
+}
+
 /* Форма */
 form {
     margin-top: 20px;
@@ -159,6 +206,7 @@ ul li form button {
     border-radius: 5px;
     cursor: pointer;
 }
+
 ul li form button:hover {
     background-color: #e63f3f;
 }

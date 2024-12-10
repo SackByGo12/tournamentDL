@@ -1,0 +1,47 @@
+{% extends 'pages/base.html' %}
+
+{% block title %}
+Личный кабинет
+{% endblock %}
+
+{% block content %}
+<h1>Привет, {{ name }}!</h1>
+
+<p>Это ваш личный кабинет.</p>
+
+<a href="{{ url_for('tournamentRouter.create_tournament') }}">Создать новый турнир</a>
+
+<h2>Ваши турниры:</h2>
+<ul>
+    {% for tournament in tournaments %}
+        <a style='color: white; text-decoration: none' href="{{ url_for('tournamentRouter.tournament', tournament_id=tournament.id) }}">
+            <li class="tournament">
+                <h5>Название: {{ tournament.name }}</h5><br>
+                Описание:<br>{{ tournament.description }}<br>
+                <form action="{{ url_for('tournamentRouter.delete_tournament', tournament_id=tournament.id) }}" method="post">
+                    <button type="submit">Удалить</button>
+                </form>
+            </li>
+        </a>
+    {% else %}
+        <p>У вас пока нет созданных турниров.</p>
+    {% endfor %}
+</ul>
+
+<h2>Записи на турниры:</h2>
+<ul>
+    {% for tournament in participant_tournaments %}
+        <a style='color: white; text-decoration: none' href="{{ url_for('tournamentRouter.tournament', tournament_id=tournament.id) }}">
+            <li class="tournament">
+                <h5>Название: {{ tournament.name }}</h5><br>
+                Описание:<br>{{ tournament.description }}<br>
+                <form action="{{ url_for('tournamentRouter.remove_participant', tournament_id=tournament.id) }}" method="post">
+                    <button type="submit">Отписаться</button>
+                </form>
+            </li>
+        </a>
+    {% else %}
+        <p>У вас пока нет записей на турниры.</p>
+    {% endfor %}
+</ul>
+{% endblock %}

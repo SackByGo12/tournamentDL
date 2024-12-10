@@ -1,0 +1,35 @@
+{% extends 'pages/base.html' %}
+
+{% block title %}
+Главная — Киберспортивные турниры
+{% endblock %}
+
+{% block content %}
+<h1>Добро пожаловать в киберспортивные турниры!</h1>
+
+{% if tournaments %}
+    <h2>Доступные турниры:</h2>
+    <ul>
+        {% for tournament in tournaments %}
+            <a style='color: white; text-decoration: none' href="{{ url_for('tournamentRouter.tournament', tournament_id=tournament.id) }}">
+                <li class="tournament">
+                    <h5>Название: {{ tournament.name }}</h5>
+                    <p>Описание: <br>{{ tournament.description }}</p>
+                    <p>Создатель: {{ tournament.username }}</p>
+                    {% if current_user.is_authenticated and 
+                        (not(current_user.id == tournament.creator_user_id))
+                        and (not(tournament.id in is_participant_tournaments))
+                    %}
+                        <form action="{{ url_for('tournamentRouter.join_tournament', tournament_id=tournament.id) }}" method="post">
+                            <button type="submit">Присоединиться</button>
+                        </form>
+                    {% endif %}
+                </li>
+            </a>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Турниров пока нет.</p>
+{% endif %}
+
+{% endblock %}
